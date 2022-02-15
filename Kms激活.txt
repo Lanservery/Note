@@ -1,0 +1,38 @@
+﻿# Create System Service
+sc create KMSSrv binpath=%windir%\System32\vlmcsd.exe type=own start=auto displayname="KMS Emulator"
+ 
+# Run Vlmcsd
+net start KMSSrv
+ 
+# Open Port:1688
+netsh advfirewall firewall add rule name="KMS Emulator Server" dir=in action=allow protocol=TCP localport=1688
+# 拷贝客户端程序到SysWow64
+copy vlmcs-Windows-x64.exe %windir%\SysWOW64\vlmcs.exe
+ 
+# 执行测试命令
+vlmcs.exe -v -l 3 localhost
+
+cscript ospp.vbs /sethst:127.0.0.1:1688
+cscript ospp.vbs /act
+------------------------------------------
+查看已设置的激活码
+
+cscript ospp.vbs /dstatus
+
+卸载原本的激活码【xxxxx为密钥后五位】
+
+cscript ospp.vbs /unpkey:xxxxx
+
+设置激活码[到下面找]
+
+cscript ospp.vbs /inpkey:xxxxx-xxxxx-xxxxx-xxxxx
+
+设置激活服务器：
+
+cscript ospp.vbs /sethst:kms.ghpym.com  //cscript ospp.vbs /sethst:127.0.0.1(本地kms配置)
+
+开始激活：
+
+cscript ospp.vbs /act
+
+VYBBJ-TRJPB-QFQRF-QFT4D-H3GVB

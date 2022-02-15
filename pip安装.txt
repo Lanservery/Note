@@ -1,0 +1,5 @@
+pip install --target=d:\somewhere\other\than\the\default package_name
+
+pip install package_name --target=D:\Python37\Lib\site-packages
+
+pip download troposphere
