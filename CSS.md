@@ -9,4 +9,3 @@
 5、1em=16px。浏览器默认文字大小是16px。
 
 6、a:hover 必须在 a:link 和 a:visited 之后，a:active 必须在 a:hover 之后。
-

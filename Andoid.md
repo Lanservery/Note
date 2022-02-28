@@ -7,7 +7,7 @@
 + 引导线百分比可在`layout_constrainGuide_percer`设置。
 + **layout_gravity**：可以设置控件的位置。
 + hint：提示。需要设置变量。
-+ **text：问号：**\?。
++ text：问号：\?。
 + contentDecription：为了方便识别按钮文字。
 + **变量属性可以选同一个。**
 
@@ -44,6 +44,7 @@
 + **SeekBar**：滑条。（Discrete：间断点）
 
 + **AdView**：广告。
+
 + **Plain Test**:输入框。
 
 **9、函数**
@@ -55,13 +56,13 @@
 + **viewPager2[0] as RecyclerView**：类型转换为 RecyclerView。
 
 + **监听器**（最好使用内部匿名类实现。在`onCreate()`函数里定义）
-
+  
   ```java
   button1.setOnClickListener();
   ```
 
 + **杀掉程序**
-
+  
   ```java
   finish();
   ```
@@ -75,7 +76,7 @@
 + 含有`ViewModelProviders`的代码段先写它，主要是修正其他设置。
 
 + **打印日记：**
-
+  
   ```java
   Log.d(字符串1，字符串2，...);
   ```
@@ -87,7 +88,7 @@
 + getApplication()：获取全局访问。
 
 + 摧毁程序：
-
+  
   ```java
   onDestroy(){
       方法体
@@ -95,7 +96,7 @@
   ```
 
 + **小提示窗口：**
-
+  
   ```java
   Toast.makeText(getApplicationContext(信息),String.valueOf(v)(值),Toast.LENGTH_SHORT(短时间显示)).show()(显示);
   ```
@@ -106,20 +107,18 @@
   private MutableLiveData<Integer>(数据类型Integer类型) aTeamScore;
   ```
 
-  
-
 + **监听函数**
-
+  
   RatingBar、SeekBar、RadioGroup、Switch、CheckBox的~~对象~~用`.setOnCheckedChangeListener()`，其他用 `setOnClickListener()`，
 
 + **续监听函数**
-
+  
   ```java
   button.setOnClickListener(View.OnClickListener(){});   //Button类
   ```
-  
-+ **设置文本**
 
++ **设置文本**
+  
   ```java
   对象.setText("左")
   ```

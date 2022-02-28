@@ -7,7 +7,7 @@
 3、HTML 基础
 
 + HTML 标题：`<h1>` 定义最大的标题。 `<h6>` 定义最小的标题。如，
-
+  
   ```html
   <h1>这是一个标题</h1>
   <h2>这是一个标题</h2>
@@ -15,20 +15,20 @@
   ```
 
 + HTML 段落：过标签 <p> 来定义，如，
-
+  
   ```html
   <p>这是一个段落。</p>
   <p>这是另外一个段落。</p>
   ```
 
 + HTML 链接：通过标签 \<a> 定义，如，
-
+  
   ```html
   <a href="https://www.runoob.com">这是一个链接</a>
   ```
 
 + HTML 图像：通过标签 \<img> 定义，如，
-
+  
   ```html
   <img loading="lazy" src="/images/logo.png" width="258" height="39" />
   ```
@@ -72,6 +72,7 @@
     <span style="color:darkolivegreen;font-weight:bold">碧绿色</span> 的眼睛。
 </p>
 ```
+
 12、文本格式化
     \<b>：定义粗体文本
 

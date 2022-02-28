@@ -3,27 +3,28 @@
 + git init：初始化仓库。
 
 + **一个文件放到Git仓库只需要两步：**
+  
   - 第一步，用命令`git add`告诉 git，把文件添加到仓库：`$ git add readme.txt`或 `git add file2.txt  file3.txt`
   - 第二步，用命令`git commit`告诉Git，把文件提交到仓库：`$ git commit -m "wrote a readme file"`
 
 + git log：显示从最近到最远的提交日志。`git log --pretty=oneline` 简化信息。**键入q退出**
-
+  
   常用搜索方式：
-
+  
   - 通过作者搜索
-
+    
     ```git
     git log --author yourname
     ```
-
+  
   - 关键字搜索
-
+    
     ```git
     git log --grep keywords
     ```
-
+  
   - 文件名搜索
-
+    
     ```git
     git log -p -- RELEASE-NOTE.md  #完整的文件名
     ```
@@ -52,6 +53,7 @@
 
 创建与合并分支
 -----------------
+
 + git checkout -b dev或git switch -c dev：创建dev分支并切换到dev分支。
 + git branch：查看当前分支。
 + git checkout master或git switch master：**切换回master分支。
@@ -61,10 +63,12 @@
 
 解决冲突
 ------------
+
 git log --graph：命令可以看到分支合并图。
 
 分支策略
 -------------
+
 master分支非常稳定，仅用来发布新版本，不能在上面干活：
 
 ```
@@ -74,10 +78,9 @@ master分支非常稳定，仅用来发布新版本，不能在上面干活：
 你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。
 ```
 
-
-
 Bug分支
 ------------------
+
 + git stash：把当前工作现场“储藏”起来，等以后恢复现场后继续工作。
 + git stash list：查看工作现场存放。
 + git stash pop：恢复工作现场，删除stash内容。
@@ -85,6 +88,7 @@ Bug分支
 
 SSH 密钥
 -------------------------
+
 + ls -al ~/.ssh：查看存在现有 SSH 密钥。
 + ssh -T git@github.com：测试 SSH 连接。
 + clone Github项目：$git clone https://github.com/Lanservery/Lanservery.github.io
@@ -108,7 +112,7 @@ $ git commit -m "remove test.txt"
 ## Git 基本配置
 
 + 配置代理
-
+  
   ```git
   git config --global http.proxy 127.0.0.1:10809
   o
@@ -116,13 +120,13 @@ $ git commit -m "remove test.txt"
   ```
 
 + 关闭代理
-
+  
   ```git
   git config --global --unset http.proxy
   ```
 
 + 设置socks5代理
-
+  
   ```git
   git config --global http.proxy socks5://127.0.0.1:10808
   or
@@ -130,44 +134,50 @@ $ git commit -m "remove test.txt"
   ```
 
 ## 清除所有历史版本
+
 + 切换到latest_branch分支下
+  
   ```git
    git checkout --orphan latest_branch
   ```
 + git add -A
+  
   ```git
   git add -A
   ```
 + 提交更改
+  
   ```git
   git commit -am "清除所有历史版本以减少仓库大小，请重新从远程拷贝此仓库"
   ```
 + 删除分支
+  
   ```git
   git branch -D master
   ```
 + 将当前分支重命名
+  
   ```git
   git branch -m master
   ```
 + 最后，强制更新存储库
+  
   ```git
   git push -f origin master
   ```
 
-
 ## 常见问题
 
 + 远程与本地不同步，git push失败，因此需要先 pull 进行合并然后在进行 push，
-
+  
   因此先使用：
-
+  
   ```git
   git pull --rebase origin master
   ```
-
+  
   将远程文件同步下来，然后再执行推送：
-
+  
   ```git
   git push -u origin master
   ```
@@ -175,7 +185,7 @@ $ git commit -m "remove test.txt"
 + github 已经在所有新库都将用中性词「main」命名，取代原来的「master」，如果我们通过git push -u origin master 方法上传仓库，在github仓库中就会出现一个master的分支
 
 + 更新指定文件
-
+  
   ```git
   git fetch
   git checkout origin/master -- path/to/file
