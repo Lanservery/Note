@@ -112,7 +112,7 @@ sudo pacman -Rnc torbrowser-launcher
 
 + 移除默认的 Keyboard - English (US)
 
-### ibus安装（不推荐）
+### ibus安装（不推荐-不好用）
 
 + 安装软件包：
   
@@ -151,28 +151,6 @@ sudo pacman -Rnc torbrowser-launcher
 ### Rime 配置目录
 
 fcitx-rime 的大部分的配置文件在 `~/.config/fcitx/rime` 下，如果是 ibus 版本，将对应的 fcitx 替换成 ibus 即是配置地址
-
-## 中文乱码
-
-+ 将`en_US.UTF-8`和`zh_CN.UTF-8`的注释从配置文件`/etc/locale.gen`去掉
-  
-  ```
-  # /etc/locale.gen
-  en_US.UTF-8 UTF-8
-  zh_CN.UTF-8 UTF-8
-  ```
-
-+ 然后执行
-  
-  ```bash
-  sudo locale-gen
-  ```
-
-+ 安装字体
-  
-  ```bash
-  sudo pacman -S noto-fonts-cjk
-  ```
 
 ## tor
 
@@ -229,10 +207,6 @@ makepkg -si
 yay -P -g
 ```
 
-## VM虚拟机共享目录无法显示
-
-[见链接](https://askubuntu.com/questions/29284/how-do-i-mount-shared-folders-in-ubuntu-using-vmware-tools)
-
 ## 终端代理
 
 ```bash
@@ -277,12 +251,6 @@ sudo pacman -Syy
 pacman -Syu
 ```
 
-## V2raya
-
-account:gan
-
-passwd:电脑开机密码
-
 ## 问题
 
 ### error: failed to commit transaction (invalid or corrupted package (PGP signature))
@@ -296,6 +264,40 @@ sudo pacman -S archlinuxcn-keyring
 ### curl: (7) Failed to connect to git.io port 443 after 21028 ms: Connection refused
 
 终端配置代理
+
+### Discover(软件中心）无法使用
+
+安装依赖
+
+```bash
+sudo pacman -S packagekit-qt5
+```
+
+### VM虚拟机共享目录无法显示
+
+[见链接](https://askubuntu.com/questions/29284/how-do-i-mount-shared-folders-in-ubuntu-using-vmware-tools)
+
+### 中文乱码
+
++ 将`en_US.UTF-8`和`zh_CN.UTF-8`的注释从配置文件`/etc/locale.gen`去掉
+  
+  ```
+  # /etc/locale.gen
+  en_US.UTF-8 UTF-8
+  zh_CN.UTF-8 UTF-8
+  ```
+
++ 然后执行
+  
+  ```bash
+  sudo locale-gen
+  ```
+
++ 安装字体
+  
+  ```bash
+  sudo pacman -S noto-fonts-cjk
+  ```
 
 ## 其他
 
