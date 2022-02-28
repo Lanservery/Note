@@ -129,7 +129,31 @@ $ git commit -m "remove test.txt"
   git config --global https.proxy socks5://127.0.0.1:1080
   ```
 
-
+## 清除所有历史版本
++ 切换到latest_branch分支下
+  ```git
+   git checkout --orphan latest_branch
+  ```
++ git add -A
+  ```git
+  git add -A
+  ```
++ 提交更改
+  ```git
+  git commit -am "清除所有历史版本以减少仓库大小，请重新从远程拷贝此仓库"
+  ```
++ 删除分支
+  ```git
+  git branch -D master
+  ```
++ 将当前分支重命名
+  ```git
+  git branch -m master
+  ```
++ 最后，强制更新存储库
+  ```git
+  git push -f origin master
+  ```
 
 
 ## 常见问题
@@ -157,4 +181,4 @@ $ git commit -m "remove test.txt"
   git checkout origin/master -- path/to/file
   ```
 
-  
++ 解决 git bash 无法显示中文：`git config --global core.quotepath false`
