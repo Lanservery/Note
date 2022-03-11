@@ -10,6 +10,11 @@ Plug 'Valloric/YouCompleteMe',{ 'for': ['python', 'javascript','html','c','css']
 Full Installation Guide:
 https://github.com/ycm-core/YouCompleteMe/wiki/Full-Installation-Guide
 
+检查完整性：
+```
+git submodule update --init --recursive
+```
+
 问题一：
 LINK : fatal error LNK1104: cannot open file 'D:\Scoop\persist\vim-nightly\vimfiles\plugged\YouCompleteMe\third_party\ycmd\ycm_
 core.cp310-win_amd64.pyd' [C:\Users\user\AppData\Local\Temp\ycm_build_t66_0bv4\ycm\ycm_core.vcxproj]

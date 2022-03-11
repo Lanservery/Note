@@ -152,6 +152,16 @@ sudo pacman -Rnc torbrowser-launcher
 
 fcitx-rime 的大部分的配置文件在 `~/.config/fcitx/rime` 下，如果是 ibus 版本，将对应的 fcitx 替换成 ibus 即是配置地址
 
+### Rime 默认英文输出配置
+
+```
+patch:
+  switches:
+    - name: ascii_mode
+      reset: 1 # 1为默认英文，0为默认中文 
+      states: [中文, 西文]
+```
+
 ## tor
 
 ```bash
@@ -207,7 +217,21 @@ makepkg -si
 yay -P -g
 ```
 
-## 终端代理
+## 代理
+
+### Qv2ray
+
+代理推荐 Qv2ray
+
+如果无法下载，在`/etc/pacman.conf` 添加清华源，更新一下软件缓存  
+
+```conf
+## OpenTUNA (China CDN) (ipv4, https)
+[archlinuxcn]
+Server = https://opentuna.cn/archlinuxcn/$arch
+```
+
+### 终端代理
 
 ```bash
 注：使用本机IP地址 
@@ -235,8 +259,8 @@ go env
 
 ```bash
 sudo vim /etc/pacman.d/mirrorlist   #在文件的最顶端添加
-或
-sudo vim /etc/pacman.conf   #在文件末尾添加
+
+sudo vim /etc/pacman.conf   #在文件末尾添加，这是在后面才添加的
 ```
 
 ### 更新软件源缓存

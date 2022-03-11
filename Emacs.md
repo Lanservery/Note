@@ -195,13 +195,25 @@
 ## 插件
 
 + 卸载插件：`M-x package-delete`，**最好使用此方法，避免卸载相关依赖**
-  
-  ## 常见问题
 
-+ 中文乱码：`M-x revert-buffer-with-coding-system`， 输入 `gbk` 即可.
+## 常见问题
 
-+ 查看启动速度：`M-x emacs-init-time`
+### 中文乱码
 
-+ `M-x load-file`命令重新加载 `init.el`文件
+ `M-x revert-buffer-with-coding-system`， 输入 `gbk` 即可.
 
-+ 中断正在输入或执行中的命令：`C-g`
+### 查看启动速度
+
+ `M-x emacs-init-time`
+
+### 重新加载 `init.el`文件
+
+ `M-x load-file`
+
+### 中断正在输入或执行中的命令
+
+ `C-g`
+
+### Cannot open load file:No such file or directory
+
+`use-package`插件要放在其他插件的前面

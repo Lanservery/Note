@@ -1,8 +1,8 @@
-## 一、基础
+# 基础
 
-**1、**类命名首字母必须**大写**。java区分大小写，`a != A`。**函数里面不要再定义函数。**
+1、类命名首字母必须大写。java区分大小写，`a != A`。**函数里面不要再定义函数。**
 
-**2、**一个文件中**只能有一个`public`类。内部类除外,可以加public.**
+2、一个文件中只能有一个`public`类。内部类除外,可以加public.
 
 3、类的访问控制符只能是空或者 public，方法和属性的访问控制符有 4 个，分别是 public、 private、
 
@@ -27,12 +27,10 @@
 7、一个程序中的变量使用 `public static final` 声明，则此变量将称为全局变量：
 
 + 例如
-
+  
   ```java
   public static final String SEX= "女";
   ```
-
-  
 
 8、 private 方法：它仅在当前类中可见，其子类无法访问该方法。
 
@@ -71,12 +69,10 @@
 + Java 默认为所有源文件导入 java.lang 包下的所有类，因此前面在 Java 程序中使用 String、System 类时都无须使用 import 语句来导入这些类。
 
 + 为了让引用更加明确，又是即使使用了 `import` 语句，也还是需要使用类的全名。
-
+  
   ```java
   java.sql.Date d = new java.sql.Date();
   ```
-
-
 
 ## 四、实现封装的具体步骤如下
 
@@ -99,16 +95,16 @@
 + 父类中的 `private` 成员在子类中是不可见的，因此在子类中不能直接使用它们。
 
 + 类对象创建，如：
-
+  
   ```java
   People stuPeople = new Student("王丽丽", 23, "女", "410521198902145589");
   ```
 
 + 语法格式如下：
-
+  
   ```java
   修饰符 class class_name extends extend_class {
-  	// 类的主体
+      // 类的主体
   }
   ```
 
@@ -121,13 +117,13 @@
 + 不可以在 static 环境中使用。
 
 + 语法格式：
-
+  
   ```java
   super(parameter-list);
   ```
 
 + super**访问父类成员**，用法：当子类的成员变量或方法与父类**同名**时。语法格式如下：
-
+  
   ```java
   super.member(属性或方法)
   ```
@@ -137,27 +133,25 @@
 + 指存在继承关系的**对象**，不是任意类型的对象。
 
 + **向上转型:**
-
+  
   ```java
   fatherClass obj = new sonClass();
   ```
-
+  
   fatherClass 是父类名称或接口名称，obj 是创建的对象，sonClass 是子类名称。**在多态中需要将子类的引用赋给父类对象，只有这样该引用才既能可以调用父类的方法，又能调用子类的方法。**
 
 + **向下转型：**
-
+  
   ```java
   sonClass obj = (sonClass) fatherClass;
   ```
-
-  
 
 ## 八、方法重载
 
 + 多个同名方法，它们的形参列表（**类型**也可以）不同。
 
 + 例如`println()`方法：
-
+  
   ```java
   System.out.println(102);  // 调用println(int i)方法
   
@@ -166,14 +160,14 @@
   System.out.println("价格为 102.25"); // 调用println(String s)方法
   ```
 
-  
-
 ## 九、方法重写
 
 + 标识符：`@Override`
 
 + 子类中与父类中**的方法**相同名称、相同返回值类型、相同参数列表，只是方法体中的实现不同。
+
 + 父类的成员方法只能被它的子类重写。
+
 + 构造方法不能被重写。
 
 ## 十、instanceof关键字
@@ -181,56 +175,55 @@
 + 判断一个**对象**是否为一个**类**（或接口、抽象类、父类）的实例。
 
 + 语法格式
-
+  
   ```java
   boolean result = obj instanceof Class
   ```
-
-  
 
 + obj 是一个对象，Class 表示一个类或接口。obj 是 class 类（或接口）的实例或者子类实例时，结果 result 返回 true，否则返回 false。
 
 ## 十一、基本类型（特殊写法）
 
 + 例子
-
+  
   ```java
   Figure figure; // 声明Figure类的变量
   figure = new Rectangle(9,9);
   ```
 
-  
-
 ## 十二、引用类型
 
 + 例子
-
+  
   ```java
   Person p1 = new Person(); //创建对象p1
   p1.fact();
   ```
-
-  
 
 ## 十三、抽象
 
 + 关键字：`abstract`
 
 + 语法格式如下：
-
+  
   ```java
   abstract class class_name {
       abstract type method_name (parameter-iist);
   }
   ```
-
+  
   ​        `abstract` 表示该类或该方法是抽象的；`class_name` 表示抽象类的名称；`method_name` 表示抽象方法名称，`parameter-list` 表示方法参数列表。
 
 + 抽象方法必须存在于抽象类中。
+
 + 抽象方法**没有方法体**。
+
 + 子类重写父类时，必须重写父类所有的抽象方法。
+
 + 不能使用 `private` 修饰，因为抽象方法必须被子类重写。
+
 + 抽象类不能实例化，就是不能使用 `new` 关键字创建对象。
+
 + 不能用于 `static` 方法或者构造方法中。
 
 ## 十四、接口
@@ -238,43 +231,36 @@
 + 关键字：Interface），注意没有class关键字
 
 + 接口定义语法格式如下：
-
+  
   ```java
   [public] interface interface_name [extends interface1_name[, interface2_name,…]] {
-  	// 接口体，其中可以包含定义常量和声明方法
+      // 接口体，其中可以包含定义常量和声明方法
   [public] [static] [final] type constant_name = value;    // 定义常量
   [public] [abstract] returnType method_name(parameter_list);    // 声明方法
   }
   方括号[]标识为可省略。
   ```
 
-  
-
 + 接口没有构造方法，不能被实例化。
 
 + 接口中声明常量和方法。
-
+  
   ```java
   public interface MyInterface {    // 接口myInterface
-  	String name;    // 不合法，变量name必须初始化
-  	int age = 20;    // 合法，等同于 public static final int age = 20;
-  	void getInfo();    // 方法声明，等同于 public abstract void getInfo();
+      String name;    // 不合法，变量name必须初始化
+      int age = 20;    // 合法，等同于 public static final int age = 20;
+      void getInfo();    // 方法声明，等同于 public abstract void getInfo();
   }
   ```
-
-  
 
 + **继承**使用 `implements` 关键字。
 
 + **类实现接口**（有时继承和实现在一起）的语法格式如下：
-
+  
   ```java
   public class class_name [extends superclass_name] [implements interface1_name[, interface2_name…]] {
       // 主体
   }
   ```
 
-  
-
 + 实现接口与继承父类相似，一样可以获得所实现接口里定义的常量和方法。如果一个类需要实现多个接口，则多个接口之间以逗号分隔。
-

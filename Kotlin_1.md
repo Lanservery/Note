@@ -1,7 +1,7 @@
 #### 1、函数
 
 + **函数定义**，参数格式为：参数 : 类型
-
+  
   ```kotlin
   fun sum(a: Int, b: Int): Int {   // Int 参数，返回值 Int
       return a + b
@@ -10,7 +10,7 @@
   ```
 
 + **无返回值的函数(类似Java中的void)**：
-
+  
   ```kotlin
   fun printSum(a: Int, b: Int): Unit { 
       print(a + b)
@@ -22,7 +22,7 @@
   ```
 
 + **函数的变长参数可以用 `vararg` 关键字进行标识**：
-
+  
   ```kotlin
   fun vars(vararg v:Int){
       for(vt in v){
@@ -36,7 +36,7 @@
   ```
 
 + **lambda(匿名函数)：**
-
+  
   ```kotlin
   // 测试
   fun main(args: Array<String>) {
@@ -46,9 +46,9 @@
   ```
 
 + **定义常量与变量：**
-
+  
   可变变量定义：var 关键字
-
+  
   ```kotlin
   var <标识符> : <类型> = <初始化值>
   val c: Int      // 如果不在声明时初始化则必须提供变量类型
@@ -56,18 +56,18 @@
 
 ​      不可变变量定义：val 关键字，只能赋值一次的变量(类似Java中final修饰的变量)
 
-  ```kotlin
-  val <标识符> : <类型> = <初始化值>
-  ```
+```kotlin
+val <标识符> : <类型> = <初始化值>
+```
 
 + **字符串模板**
-
+  
   `$` 表示一个变量名或者变量值。
-
+  
   `$varName` 表示变量值。
-
+  
   `${varName.fun()}` 表示变量的方法返回值。
-
+  
   ```kotlin
   var a = 1
   // 模板中的简单名称：
@@ -78,11 +78,11 @@
   ```
 
 + **空判断处理**
-
+  
   字段后加`!!`像Java一样抛出空异常。
-
+  
   字段后加`?`可不做处理返回值为 null或配合`?:`做空判断处理。
-
+  
   ```kotlin
   //类型后面加?表示可为空
   var age: String? = "23" 
@@ -97,9 +97,9 @@
 + **&&**：与运算符。
 
 + **区间表达式**
-
+  
   由具有操作符形式 `..` 的 `rangeTo` 函数辅以 in 和 !in 形成
-
+  
   ```kotlin
   for (i in 1..4) print(i) // 输出“1234”
   for (i in 4..1) print(i) // 什么都不输出
@@ -126,13 +126,13 @@
 > 注意：8进制不支持
 
 + **比较**
-
+  
   `Kotlin` 没有基础数据类型，只有封装的数字类型，每定义一个变量，`Kotlin` 会封装一个对象。
-
+  
   在 `Kotlin` 中，三个等号 `===` 表示比较**对象**地址，两个 `==` 表示比较两个值大小。
 
 + **类型转换**
-
+  
   ```kotlin
   toByte(): Byte
   toShort(): Short
@@ -146,7 +146,7 @@
   ```
 
 + **位操作符**
-
+  
   ```kotlin
   shl(bits) – 左移位 (Java’s <<)
   shr(bits) – 右移位 (Java’s >>)
@@ -158,7 +158,7 @@
   ```
 
 + **布尔**
-
+  
   ```kotlin
   || – 短路逻辑或
   && – 短路逻辑与
@@ -166,9 +166,9 @@
   ```
 
 + **数组**
-
+  
   用类 Array 实现，创建方式：一种是使用函数`arrayOf()`；另外一种是使用工厂函数。
-
+  
   ```kotlin
   fun main(args: Array<String>) {
       //[1,2,3]
@@ -190,9 +190,9 @@ x[0] = x[1] + x[2]
 ```
 
 + **字符串**
-
+  
   `Kotlin` 支持**三个**引号 """ 扩起来的字符串，支持**多行**字符串
-
+  
   ```kotlin
   fun main(args: Array<String>) {
       val text = """
@@ -204,7 +204,7 @@ x[0] = x[1] + x[2]
   ```
 
 + **字符串模板（以美元符 $ 开头）**
-
+  
   ```kotlin
   fun main(args: Array<String>) {
       val i = 10
@@ -216,9 +216,9 @@ x[0] = x[1] + x[2]
 #### 3、条件控制
 
 + **IF 表达式**
-
+  
   可以把 IF 表达式的结果赋值给一个变量
-
+  
   ```kotlin
   val max = if (a > b) {
       print("Choose a")
@@ -230,6 +230,7 @@ x[0] = x[1] + x[2]
   或
   val c = if (condition) a else b
   ```
+  
   `in`运算符来检测某个数字是否在指定区间内
   
   ```kotlin
@@ -243,11 +244,11 @@ x[0] = x[1] + x[2]
   ```
 
 + **When 表达式**
-
+  
   when 将它的参数和所有的分支条件**顺序比较**，直到某个分支满足条件。
-
+  
   when 类似其他语言的 switch 操作符。
-
+  
   ```kotlin
   when (x) {
       1 -> print("x == 1")
@@ -303,13 +304,13 @@ fun main(args: Array<String>) {
 #### 4、循环控制
 
 + 跳转表达式
-
+  
   *return*。默认从最直接包围它的函数或者匿名函数返回。
-
+  
   *break*。终止最直接包围它的循环。
-
+  
   *continue*。继续下一次最直接包围它的循环。
-
+  
   ```kotlin
   fun main(args: Array<String>) {
       for (i in 1..10) {
@@ -325,29 +326,29 @@ fun main(args: Array<String>) {
 + **a === b**：判断是否是同一个对象。
 
 + **创建类实例**
-
+  
   ```kotlin
   val site = Runoob() // Kotlin 中没有 new 关键字
   ```
 
 + **空类**
-
+  
   ```kotlin
   class Empty
   ```
 
 + **getter 和 setter（val不允许设置setter函数）**
-
+  
   属性声明的完整语法：
-
+  
   ```kotlin
   var propertyName: PropertyType = property_initializer
       getter
       setter
   ```
-
+  
   如果属性类型可以从初始化语句或者类的成员函数中推断出来，那就可以省去类型。
-
+  
   ```kotlin
   var allByDefault: Int? // 错误: 需要一个初始化语句, 默认实现了 getter 和 setter 方法
   var initialized = 1    // 类型为 Int, 默认实现了 getter 和 setter
@@ -356,7 +357,7 @@ fun main(args: Array<String>) {
   ```
 
 + **`kotlin`提供可以延迟初始化的方案,使用 `lateinit` 关键字描述属性**
-
+  
   ```kotlin
   public class MyTest {
       lateinit var subject: TestSubject
@@ -370,9 +371,9 @@ fun main(args: Array<String>) {
   ```
 
 + **主构造器**
-
+  
   主构造器中不能包含任何代码，初始化代码可以放在初始化代码段中，初始化代码段使用 init 关键字作为前缀。
-
+  
   ```kotlin
   class Person constructor(firstName: String) {
       init {
@@ -393,9 +394,9 @@ fun main(args: Array<String>) {
   ```kotlin
   class Person constructor(firstName: String) {}
   ```
-  
-+ **次构造函数**
 
++ **次构造函数**
+  
   ```kotlin
   class Person { 
       constructor(parent: Person) {
@@ -405,11 +406,11 @@ fun main(args: Array<String>) {
   ```
 
 + **抽象类（关键字：abstract）**
-
+  
   类本身，或类中的部分成员，都可以声明为abstract。
 
 + **嵌套类**
-
+  
   ```kotlin
   class Outer {                  // 外部类
       private val bar: Int = 1
@@ -424,15 +425,15 @@ fun main(args: Array<String>) {
   ```
 
 + **内部类（关键字： inner，在class前面）**
-
+  
   内部类可以访问外部类**成员属性和成员函数**。
-
+  
   为消除歧义，要访问来自外部作用域的 this，使用this@label， @label 是 代指 this 来源的标签。
 
 + **类的修饰符**
-
+  
   `classModifier`: 类属性修饰符，标示类本身特性。
-
+  
   ```kotlin
   abstract    // 抽象类  
   final       // 类不可继承，默认属性
@@ -440,14 +441,12 @@ fun main(args: Array<String>) {
   open        // 类可继承，类默认是final的
   annotation  // 注解类
   ```
-
+  
   `accessModifier`: 访问权限修饰符
-
+  
   ```kotlin
   private    // 仅在同一个文件中可见
   protected  // 同一个文件中或子类可见
   public     // 所有调用的地方都可见
   internal   // 同一个模块中可见
   ```
-
-
