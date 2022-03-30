@@ -2,6 +2,29 @@
 
 mattn <mattn.jp@gmail.com>
 
+## Start
+
+Type ("_" is the cursor position):
+
+```
+html:5_
+```
+
+Then type `<c-y>,` (Ctrly,), and you should see:
+
+```html
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    _
+</body>
+</html>
+```
+
 ## Expand an Abbreviation
 
 Type the abbreviation as `div>p#foo$*3>a` and type `<c-y>,`
@@ -66,7 +89,7 @@ Just type `<c-y>n` in insert mode.
 
 Just type `<c-y>N` in insert mode.
 
-## Update an <img>’s Size
+## Update an \<img>’s Size
 
   Move cursor to the img tag.
 

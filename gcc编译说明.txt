@@ -1,0 +1,27 @@
+写出下面这段程序：
+
+```
+for (int i = 0; i < n; ++i)
+
+　　do_something();
+```
+然后用gcc编译，会报 ‘for’ loop initial declarations are only allowed in C99 mode的错误。
+
+原因是在循环条件中声明变量，只在C99标准中支持，C90标准不支持。
+
+所以改成:
+
+```
+int i;
+
+for (i = 0; i < n; ++i)
+
+　　do_something();
+```
+这样编译就可以通过了。
+
+想要不改代码的情况下编译通过，使用：
+
+```
+gcc src.c -std=c99 -o src
+```

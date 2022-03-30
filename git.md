@@ -16,7 +16,7 @@
 
 + `git diff`：查看更改的地方
 
-## 一个文件放到Git仓库只需要两步
+## 一个文件放到Git仓库
 
 - 第一步，用命令`git add`告诉 git，把文件添加到仓库：`$ git add readme.txt`或 `git add file2.txt  file3.txt`
 - 第二步，用命令`git commit`告诉Git，把文件提交到仓库：`$ git commit -m "wrote a readme file"`

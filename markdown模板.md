@@ -1,10 +1,15 @@
 # Markdown Reference
+
 Automatically generate _table of contents_ by checking the option here: `Settings > Format > Markdown`.
 
 ## H2 Header
+
 ### H3 header
+
 #### H4 Header
+
 ##### H5 Header
+
 ###### H6 Header
 
 <!-- --------------- -->
@@ -30,52 +35,55 @@ awesome
 ```
 
 <!-- --------------- -->
- 
+
 ## Lists
+
 ### Ordered & unordered
 
 * Unordered list
+
 * ...with asterisk/star
+
 * Test
-
 - Another unordered list
-- ...with hyphen/minus
-- Test
 
+- ...with hyphen/minus
+
+- Test
 1. Ordered list
 2. Test
 3. Test
 4. Test
-
 - Nested lists
-    * Unordered nested list
-    * Test
-    * Test
-    * Test
+  * Unordered nested list
+  * Test
+  * Test
+  * Test
 - Ordered nested list
-    1. Test
-    2. Test
-    3. Test
-    4. Test
+  1. Test
+  2. Test
+  3. Test
+  4. Test
 - Double-nested unordered list
-    - Test
-    - Unordered
-        - Test a
-        - Test b
-    - Ordered
-        1. Test 1
-        2. Test 2
+  - Test
+  - Unordered
+    - Test a
+    - Test b
+  - Ordered
+    1. Test 1
+    2. Test 2
 
 ### Checklist
+
 * [ ] Salad
 * [x] Potatoes
-
 1. [x] Clean
 2. [ ] Cook
 
 <!-- --------------- -->
 
 ## Links
+
 [Link](https://duckduckgo.com/)
 
 [File in same folder as the document.](markor-markdown-reference.md) Use %20 for spaces!
@@ -85,22 +93,23 @@ awesome
 ## Tables
 
 | Left aligned | Middle aligned | Right aligned |
-| :--------------- | :------------------: | -----------------: |
-| Test                 | Test                      | Test                    |
-| Test                 | Test                      | Test                    |
+|:------------ |:--------------:| -------------:|
+| Test         | Test           | Test          |
+| Test         | Test           | Test          |
 
 ÷÷÷÷
 
-Shorter | Table | Syntax
-:---: | ---: | :---
-Test | Test | Test
-Test | Test | Test
+| Shorter | Table | Syntax |
+|:-------:| -----:|:------ |
+| Test    | Test  | Test   |
+| Test    | Test  | Test   |
 
 <!-- Comment: Not visibile in view. Can also span across multiple lines. End with:-->
 
 <!-- --------------- -->
 
 ## Math (KaTeX)
+
 See [reference](https://katex.org/docs/supported.html) & [examples](https://github.com/waylonflinn/markdown-it-katex/blob/master/README.md). Enable by checking Math at `Settings > Markdown`.
 
 ### Math inline
@@ -112,7 +121,6 @@ $ I = \frac V R $
 <div>
 $$\begin{array}{c} \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & = \frac{4\pi}{c}\vec{\mathbf{j}} \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\ \nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\ \nabla \cdot \vec{\mathbf{B}} & = 0 \end{array}$$
 </div>
-
 
 $$\frac{k_t}{k_e} = \sqrt{2}$$
 
@@ -128,7 +136,6 @@ $$\frac{k_t}{k_e} = \sqrt{2}$$
 
 <span style='text-shadow: 0px 0px 2px #FF0000;'>Text with colored outline</span> / <span style='text-shadow: 0px 0px 2px #0000FF; color: white'>Text with colored outline</span>
 
-
 ### Text sub & superscript
 
 <u>Underline</u>
@@ -138,6 +145,7 @@ The <sub>Subway</sub> sandwich was <sup>super</sup>
 Super special characters: ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ ⁿ ™ ® ℠
 
 ### Text positioning
+
 <div markdown='1' align='right'>
 
 text on the **right**
@@ -166,24 +174,28 @@ Expanded content. Shows up and keeps visible when clicking expand. Hide again by
 
 </details>
 
-
 <!-- --------------- -->
 
 ## Multimedia
 
 ### Images
+
 ![Image](https://gsantner.net/assets/blog/img/markor/markor-v1-7-showcase-3.jpg)
 
 ### Videos
+
 **Youtube** [Welcome to Upper Austria](https://www.youtube.com/watch?v=RJREFH7Lmm8)
+
 <iframe width='360' height='200' src='https://www.youtube.com/embed/RJREFH7Lmm8'> </iframe>
 
 **Peertube** [Road in the wood](https://open.tube/videos/watch/8116312a-dbbd-43a3-9260-9ea6367c72fc)
+
 <div><video controls><source src='https://peertube.mastodon.host/download/videos/8116312a-dbbd-43a3-9260-9ea6367c72fc-480.mp4' </source></video></div>
 
 <!-- **Local video** <div><video controls><source src='voice-parrot.mp4' </source></video></div> -->
 
 ### Audio & Music
+
 **Web audio** [Guifrog - Xia Yu](https://www.freemusicarchive.org/music/Guifrog/Xia_Yu)
 <audio controls src='https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Guifrog/Xia_Yu/Guifrog_-_Xia_Yu.mp3'></audio>
 
@@ -195,5 +207,3 @@ Expanded content. Shows up and keeps visible when clicking expand. Hide again by
 This Markdown reference file was created for the [Markor](https://gsantner.net/project/markor?source=markdownref) project by [Gregor Santner](https://gsantner.net) and is licensed [Creative Commons Zero 1.0](https://creativecommons.org/publicdomain/zero/1.0/legalcode) (public domain). File revision 2.
 
 ------------------
-
-

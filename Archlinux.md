@@ -53,7 +53,9 @@ sudo pacman -Rnc torbrowser-launcher
 
 + 不能多次执行 genfstab，应该编辑 fstab 修正错误。
 
-+ 分区：格式化 -> 挂载 -> 配置fstab 文件，[链接](https://cloud.tencent.com/developer/article/1183198?from=15425)
++ 分区：格式化 -> 挂载 -> 配置fstab 文件
+
++ [linux进行硬盘分区挂载](https://cloud.tencent.com/developer/article/1183198?from=15425)
 
 + [磁盘空间清理](https://arch.icekylin.online/advanced/system-ctl.html#%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E6%B8%85%E7%90%86)
 
@@ -61,7 +63,7 @@ sudo pacman -Rnc torbrowser-launcher
 
 ### fcitx安装（推荐）
 
-+ 安装 **fcitx** 或**fcitx5**：
++ 安装 **fcitx** 或 **fcitx5(建议)**：
   
   ```bsah
   [admin@arch ~]$ sudo pacman -S fcitx-im
@@ -69,7 +71,7 @@ sudo pacman -Rnc torbrowser-launcher
   [admin@arch ~]$ sudo pacman -S fcitx5-im
   ```
 
-+ 输入下面的指令安装 fcitx 的 GUI 配置工具：
++ 输入下面的指令安装 fcitx 的 GUI 配置工具(先不用安装)：
   
   ```bash
   [admin@arch ~]$ sudo pacman -S kcm-fcitx
@@ -87,6 +89,8 @@ sudo pacman -Rnc torbrowser-launcher
 
 + vim 编辑 ~/.pam_environment，加上如下内容：
   
+  最好参考官网，[Fcitx5 (简体中文) - ArchWiki](https://wiki.archlinux.org/title/Fcitx5_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E5%AE%89%E8%A3%85)
+  
   ```bash
   GTK_IM_MODULE=fcitx
   QT_IM_MODULE=fcitx
@@ -96,7 +100,7 @@ sudo pacman -Rnc torbrowser-launcher
   GTK_IM_MODULE=fcitx5
   QT_IM_MODULE=fcitx5
   XMODIFIERS=@im=fcitx5
-  SDL_IM_MODULE DEFAULT=fcitx
+  SDL_IM_MODULE DEFAULT=fcitx //为了让 SDL2 库的游戏，比如 Dota2 能正常使用
   ```
 
 + 重启系统
@@ -218,6 +222,8 @@ yay -P -g
 ```
 
 ## 代理
+
+> 注意：安装代理软件前不要使用国内的镜像源！！！
 
 ### Qv2ray
 

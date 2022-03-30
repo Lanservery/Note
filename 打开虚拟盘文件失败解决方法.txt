@@ -1,0 +1,1 @@
+cd 到VirtualBox安装目录，输入  VBOXMANAGE.EXE internalcommands sethduuid "E:\FLTE\FLTEQQ.vdi"(路劲改为vdi文件位置)

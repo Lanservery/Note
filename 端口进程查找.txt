@@ -1,0 +1,5 @@
+1、查找所有运行的端口：netstat -ano
+---------------------------------------
+2、查看被占用端口对应的PID：netstat -ano|findstr "2236(端口)"
+3、查看指定PID进程：tasklist|findstr "2236（PID）"
+4、结束进程：taskkill /T /F /PID 2236(PID)--/F(强制)，/F(进程)

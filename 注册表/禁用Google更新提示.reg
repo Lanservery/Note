@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Update] 
+"UpdateDefault"=dword:00000000 
+"DisableAutoUpdateChecksCheckboxValue"=dword:00000001 
+"AutoUpdateCheckPeriodMinutes"=dword:00000000
