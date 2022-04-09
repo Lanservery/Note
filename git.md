@@ -16,16 +16,24 @@
 
 + `git diff`：查看更改的地方
 
-## 一个文件放到Git仓库
+## 把文件放到Git仓库
 
 - 第一步，用命令`git add`告诉 git，把文件添加到仓库：`$ git add readme.txt`或 `git add file2.txt  file3.txt`
 - 第二步，用命令`git commit`告诉Git，把文件提交到仓库：`$ git commit -m "wrote a readme file"`
+
+## 快速 git add
+
+这条命令可以自动添加新增、修改、删除的文件：
+
+```bash
+git add .
+```
 
 ## git log
 
 显示从最近到最远的提交日志。`git log --pretty=oneline` 简化信息。**键入q退出**
 
-### 常用搜索方式
+### 搜索方式
 
 - 通过作者搜索
   
@@ -64,28 +72,13 @@
 + `git branch -d dev`：删除dev分支。-D是强制删除。
 + `git merge --no-ff -m "merge with no-ff" dev`：合并dev分支，创建一个新的commit，把commit描述写进去。(强制禁用Fast forward模式)。
 
-## 解决冲突
+## 分支合并图
 
-`git log --graph`：命令可以看到分支合并图。
+```bash
+git log --graph
+```
 
-## 分支策略
-
-master分支非常稳定，仅用来发布新版本，不能在上面干活：
-
-> 干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发>布时，再把dev分
-> 支合并到master上，在master分支发布1.0版本；
-> 
-> 你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。
-
-## Bug分支
-
-+ `git stash`：把当前工作现场“储藏”起来，等以后恢复现场后继续工作。
-+ `git stash list`：查看工作现场存放。
-+ `git stash pop`：恢复工作现场，删除stash内容。
-+ `git stash apply stash@{0}`：恢复指定的stash。
-
-SSH 密钥
--------------------------
+## SSH 密钥
 
 + `ls -al ~/.ssh`：查看存在现有 SSH 密钥。
 + `ssh -T git@github.com`：测试 SSH 连接。
@@ -166,7 +159,7 @@ git config --global https.proxy socks5://127.0.0.1:1080
 
 ## 常见问题
 
-+ 远程与本地不同步，`git push`失败，因此需要先 pull 进行合并然后在进行 push，
++ 远程与本地不同步，`git push`失败，需要先 pull 进行合并然后在进行 push，
   
   因此先使用：
   

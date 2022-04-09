@@ -18,3 +18,8 @@
 + 如果**无法取消选择**，试着切换工具再试一下。
 + 抠图：进行选区 ->右键添加图层蒙版 ->选区 ->添加。
 + Gif 图延迟设为`100`最适合
+
+## Gif延迟快速脚本
+[链接](https://www.reddit.com/r/GIMP/comments/62w004/animation_how_to_change_time_of_all_frames/dfpr9zi/)
+[下载](http://chiselapp.com/user/saulgoode/repository/script-fu/file?name=sg-anim-settings.scm)
+

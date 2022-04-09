@@ -93,7 +93,7 @@ const 声明一个常量，声明时必须进行初始化，初始化后值不�
 
 ```javascript
 var myCars=new Array();
-myCars[0]="Saab";      
+myCars[0]="Saab";
 myCars[1]="Volvo";
 myCars[2]="BMW";
 ```
@@ -107,7 +107,7 @@ var myCars=new Array("Saab","Volvo","BMW");
 字面:
 
 ```javascript
-var cars = ["Saab", "Volvo", "BMW"]; 
+var cars = ["Saab", "Volvo", "BMW"];
 ```
 
 ## 类
