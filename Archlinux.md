@@ -446,7 +446,7 @@ sudo pacman -S packagekit-qt5
 /etc/sddm.conf.d/avatars.conf
 
 [Theme]
-EnableAvatars=true # enable avatars    
+EnableAvatars=true # enable avatars
 DisableAvatarsThreshold=7 # set the threshold for the number of users. Avatars are not shown if this threshold is exceeded.
 ```
 
@@ -502,6 +502,14 @@ bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix 
+```
+### npm run scriptname 时提示“Permission denied”
+删除 `node_modules` 文件夹，运行 `npm install` 重新安装依赖。
+
+### npm 安装全局包权限问题
+如果包不常用，可通过 `npx` 命令临时安装解决，如：
+```bash
+npx hexo Blog
 ```
 
 ### VS Code首次安装打开提示错误
