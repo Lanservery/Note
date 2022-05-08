@@ -22,6 +22,28 @@ sudo visudo
 
 ### Vnote 安装时间巨长！可试着安装 vnote-git
 
+## ffmpeg
+
+### 转换编码格式
+
+H.264：
+
+```bash
+ffmpeg -i [input.file] -c:v libx264 output.mp4
+```
+
+H.265：
+
+```bash
+ffmpeg -i [input.file] -c:v libx265 output.mp4
+```
+
+### 更改为720×1820(高×宽)
+
+```bash
+ffmpeg -i output-h264.mp4 -vf scale=1280:720 output-h264-720.mp4 
+```
+
 ## 切换tty2
 
 + 进入：`Ctrl + Alt + F2`
@@ -52,6 +74,16 @@ chattr -i /path/to/file
 ```
 neofetch
 ```
+
+### top
+
+功能：监听进程运行状态
+
+交互操作：
+
+N：按照 PID 排序；
+
+k：按照 PID 给予某个进程一个信号。一般用于中止某个进程，信号 9 是强制中止的信号；
 
 ## 应用程序搜索
 
@@ -243,6 +275,33 @@ patch:
 
 按空格键即可，要选择其他字符，再按“/”键自身即可选择
 
+## Python
+
+### pip安装
+
+```bash
+sudo pacman -S python-pip
+```
+
+为当前用户安装包
+
+```bash
+pip install --user SomePackage
+```
+
+### 创建虚拟环境
+
+```bash
+python3 -m venv <DIR>
+source <DIR>/bin/activate
+```
+
+退出
+
+```bash
+deactivate
+```
+
 ## tor
 
 ```bash
@@ -429,14 +488,68 @@ sudo pacman -S packagekit-qt5
 + 安装字体
   
   ```bash
-  sudo pacman -S noto-fonts-cjk
+  sudo pacman -S adobe-source-han-serif-cn-fonts
   ```
+
+### Word排版错乱
+
+```bash
+# 为单个用户安装字体
+# 在~/.local/share/fonts/下新建目录：win_fonts
+mkdir ~/.local/share/fonts/win_fonts
+# 将Windows系统Fonts目录里的所有文件全部复制到Ubuntu系统，注意我的挂载点：/media/david/OS，你的电脑不会是该目录，注意自己查询。
+cp /media/david/OS/Windows/Fonts/*.* ~/.local/share/fonts/win_fonts
+# 删除.fon文件
+rm -f ~/.local/share/fonts/win_fonts/*.fon
+```
+生成字体的索引信息
+>要在字体目录里面执行命令
+```bash
+mkfontscale
+mkfontdir
+```
+
+更新字体缓存：
+
+```bash
+fc-cache -fv
+```
+
+参考文章：
+
+[解决WPS 排版错乱的个人经验－统信UOS官方论坛](https://bbs.chinauos.com/zh/post/11617)
+
+[Linux系统使用Windows系统字体的方法_知行合一2018的博客-CSDN博客_linux使用字体](https://blog.csdn.net/davidhopper/article/details/78898881)
 
 ### WPS字体糢糊
 
 [WPS Office (简体中文) - ArchWiki](https://wiki.archlinux.org/title/WPS_Office_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#KDE%E4%B8%8Bdpi%E4%B8%8D%E5%AF%B9%E7%A7%B0%E5%AF%BC%E8%87%B4%E7%9A%84%E5%AD%97%E4%BD%93%E6%A8%A1%E7%B3%8A)
 
 [具体教程](http://www.hmmnx.com/archives/archmanjaro-jie-jue-wps-zi-ti-mo-hu-wen-ti)
+
+### Telegram 中文有异体字形
+
+调整字体优先级：
+在~/.fonts.conf添加，前提是安装有这种字体
+
+```
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+  <alias>
+    <family>sans-serif</family>
+    <prefer>
+      <family>Source Han Serif CN</family>
+    </prefer>
+  </alias>
+  <alias>
+    <family>monospace</family>
+    <prefer>
+      <family>Source Han Serif CN</family>
+    </prefer>
+  </alias>
+</fontconfig>
+```
 
 ### 开机启动时头像无法显示
 
@@ -503,11 +616,15 @@ bindkey "\e[F" end-of-line
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix 
 ```
+
 ### npm run scriptname 时提示“Permission denied”
+
 删除 `node_modules` 文件夹，运行 `npm install` 重新安装依赖。
 
 ### npm 安装全局包权限问题
+
 如果包不常用，可通过 `npx` 命令临时安装解决，如：
+
 ```bash
 npx hexo Blog
 ```
@@ -541,6 +658,30 @@ session        optional    pam_gnome_keyring.so auto_start  <=还有这行
 ```
 
 参考[GNOME Keyring - openSUSE Wiki](https://en.opensuse.org/GNOME_Keyring)
+
+### 无法通过USB访问手机
+
+将用户添加到`uucp`组
+
+```bash
+sudo gpasswd -a gan uucp
+```
+
+> 额外：如果用户已登录，必须重新登录使更改生效。
+
+### 压缩包乱码
+
+安装 Unarchiver：
+
+```bash
+sudo pacman -S unarchiver
+```
+
+解压压缩包：
+
+```bash
+unar xxx.zip
+```
 
 ## 其他
 
