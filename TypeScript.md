@@ -109,22 +109,22 @@ function function_name():return_type {
 `constructor()`或者与函数同名，如：
 
 ```javascript
-class Car { 
-    // 字段 
-    engine:string; 
+class Car {
+    // 字段
+    engine:string;
 
-    // 构造函数 
-    constructor(engine:string) { 
-        this.engine = engine 
-    }  
-    // 构造函数 
-    //function Car(engine) {
-    //    this.engine = engine;
-    //}
-    // 方法 
-    disp():void { 
-        console.log("发动机为 :   "+this.engine) 
-    } 
+    // 构造函数 1
+    constructor(engine:string) {
+        this.engine = engine
+    }
+    // 构造函数 2
+    function Car(engine) {
+        this.engine = engine;
+    }
+    // 方法
+    disp():void {
+        console.log("发动机为 :   "+this.engine)
+    }
 }
 ```
 

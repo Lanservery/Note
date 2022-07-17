@@ -1,14 +1,3 @@
-# 起步
-
-Vue 应用需要通过实例化 Vue 来实现
-语法格式：
-
-```html
-var vm = new Vue({
-  // 选项
-})
-```
-
 # 插值
 
 ## 文本
@@ -40,49 +29,15 @@ new Vue({
 </script>
 ```
 
-## 属性
-
-使用 v-bind 指令：
-
-```html
-<div v-bind:class="{'class1': use}">
-```
-
-# 参数
-
-参数在指令后以冒号指明：
-
-```html
-<div id="app">
-    <pre><a v-bind:href="url">菜鸟教程</a></pre>
-</div>
-
-<script>
-new Vue({
-  el: '#app',
-  data: {
-    url: 'http://www.runoob.com'
-  }
-})
-</script>
-//href 是参数，告知 v-bind 指令将该元素的 href 属性与表达式 url 的值绑定。
-```
-
-v-on 指令，它用于监听 DOM 事件：
-
-```html
-<a v-on:click="doSomething">
-```
-
 # 修饰符
 
-修饰符是以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：
+以半角句号 . 指明，用于指出一个指令应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：
 
 ```html
 <form v-on:submit.prevent="onSubmit"></form>
 ```
 
-# 用户输入
+# v-model 双向数据绑定
 
 在 input 输入框使用 `v-model` 指令来实现双向数据绑定：
 
@@ -104,7 +59,7 @@ new Vue({
 
 # 过滤器
 
-Vue.js 允许自定义过滤器，被用作一些常见的文本格式化。由"管道符"指示, 格式如下：
+用作常见的文本格式化。由"管道符"指示, 格式如下：
 
 ```html
 <!-- 在两个大括号中 -->
@@ -283,7 +238,7 @@ new Vue({
 ```
 
 # 计算属性
-
+逻辑处理。
 关键词: `computed`。
 
 ```html
@@ -309,7 +264,7 @@ var vm = new Vue({
 </script>
 ```
 
-## setter
+# setter
 
 `computed `属性默认只有 `getter` ，不过在需要时可提供一个` setter` ：
 
@@ -342,9 +297,9 @@ document.write('<br>');
 document.write('url: ' + vm.url);
 ```
 
-# 监听属性
+#  watch 监听
 
-通过 watch 来监听响应数据的变化
+监听响应数据的变化
 
 ```html
 <div id = "app">
@@ -364,9 +319,7 @@ vm.$watch('counter', function(nval, oval) {
 </script>
 ```
 
-# 样式绑定
-
-class 属性绑定
+# class 绑定
 
 可以为 v-bind:class 设置一个对象，从而动态的切换 class:
 
@@ -390,9 +343,9 @@ class 属性绑定
 </div>
 ```
 
-# 事件处理器
+# 事件监听
 
-事件监听使用 v-on 指令：
+使用 v-on 指令：
 
 ```html
 <div id="app">
@@ -405,36 +358,6 @@ new Vue({
   el: '#app',
   data: {
     counter: 0
-  }
-})
-</script>
-```
-
-# 表单
-
-  可以用 v-model 指令在表单控件元素上创建双向数据绑定。
-
-## 输入框
-
-实例中演示了 input 和 textarea 元素中使用 v-model 实现双向数据绑定：
-
-```html
-<div id="app">
-  <p>input 元素：</p>
-  <input v-model="message" placeholder="编辑我……">
-  <p>消息是: {{ message }}</p>
-
-  <p>textarea 元素：</p>
-  <p style="white-space: pre">{{ message2 }}</p>
-  <textarea v-model="message2" placeholder="多行文本输入……"></textarea>
-</div>
-
-<script>
-new Vue({
-  el: '#app',
-  data: {
-    message: 'Runoob',
-    message2: '菜鸟教程\r\nhttp://www.runoob.com'
   }
 })
 </script>

@@ -222,4 +222,4 @@ class Test:
 
 ## robots.txt
 
-  `https://www.ecosia.org/robots.txt`
+  `https://www.example.org/robots.txt`

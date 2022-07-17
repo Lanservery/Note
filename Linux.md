@@ -4,29 +4,19 @@
 
 **clear**：清理屏幕。
 
-**exit**：退出当前用户。：**su -xxx**：切换到用户xxx。
+**exit**：退出当前用户。
 
-**wget [参数] 下载地址**：下载网络文件，参数：-P：下载到指定目录，如 
+**su - <user>**：切换到用户 user。加`-`使用新用户的环境变量。
 
-```sh
-  wget http://www.linuxprobe.com/docs/LinuxProbe.pdf
-```
-
-**ps [参数]**：查看系统中的进程状态。
-
-> -a：显示所有进程（包括其他用户的进程）。
-> -u：用户以及其他详细信息。
-> -x：显示没有控制终端的进程。
-> 
-> 进程状态：R：运行。T：停止。S：中断。D：不可中断。Z：僵死。
+**wget [参数] 下载地址**：下载网络文件，参数：-P：下载到指定目录。
 
 **top**：动态地监视进程活动与系统负载等信息。
 
 **pidof [参数] [服务名称]**：查询某个指定服务进程的PID值。如， 
 
 ```sh
-[root@linuxprobe ~]# pidof sshd
-2156
+pidof sshd
+>2156
 ```
 
 **kill [参数] [进程PID]**：终止某个指定PID的服务进程。
@@ -34,37 +24,23 @@
 **killall [参数] [服务名称]**：终止某个指定名称的服务所对应的**全部**进程。
 
 ```sh
-[root@linuxprobe ~]# killall httpd
-```
-
-**ifconfig**：获取网卡配置与网络状态。如，
-
-```sh
-[root@linuxprobe ~]# ifconfig
+killall httpd
 ```
 
 **uname -a**：查看系统内核与系统版本。
-
-**uptime**：查看系统的负载信息。
 
 **free -h**：显示当前系统中内存的使用量。
 
 **who**：查看当前登入主机的用户。
 
-**last**：查看所有系统的登录记录。
-
-**history**：显示历史执行过的命令，使加 -c 参数会清空所有的命令历史记录。
-
 ```bash
 # 历史命令会被保存到用户家目录中的.bash_history文件中
-[root@linuxprobe ~]# cat ~/.bash_history
+cat ~/.bash_history
 ```
 
 **sosreport**：收集系统配置及架构信息并输出诊断文档。
 
 echo [字符串 | $变量]：在终端输出字符串或变量提取后的值。
-
-**date** ：查看当前系统时间。
 
 **cd ~username**：切换到其他用户的家目录。
 
@@ -104,12 +80,6 @@ df -h
 du -sh xxx
 ```
 
-## 统计当前目录文件个数
-
-```shell
-ls -lR | grep "^-" | wc -l
-```
-
 ## 卸载与清理
 
 清理所有 apt 缓存：`sudo apt clean`
@@ -140,7 +110,7 @@ ls -lR | grep "^-" | wc -l
   rm -rf xxx
   ```
 
-查看是否有新增用户并删除：
+## 查看是否有新增用户并删除
 
 ```sh
 cat /etc/passwd
@@ -149,66 +119,54 @@ userdel -r xxx
 
 ## 工作目录切换
 
-**pwd**：显示用户当前所处的工作目录。
+`pwd`：显示用户当前所处的工作目录。
 
-**cd命令（[root@linuxprobe ~]# cd /etc）**
+**cd**
 
 > cd -：命令返回到上一次所处的目录。
 > cd..：命令进入上级目录。
 > cd ~：命令切换到当前用户的家目录。
 
-**ls**：显示目录的文件信息。-a参数看到全部文件（包括隐藏文件），-l 可查看文件的属性、大小详细信息。-d参数查看/etc目录的权限与属性，如，`[root@linuxprobe ~]# ls -ld /etc`。
+## 文件查看
 
-```sh
-[root@linuxprobe ~]# ls -al
-```
+**ls**：显示目录的文件信息。-a 查看全部文件（包括隐藏文件），-l 查看文件的属性、大小详细信息。-d参数查看目录的权限与属性
 
 查看目录属性：
 
 ```sh
-ls -ld /etc
+ls -ld /etc
 ```
-
-## 文件查看
 
 **cat**：查看纯文本文件（内容较少的）。加 -n 显示行号。
 
-**more**：查看纯文本文件（内容较多的），使用空格键或回车键向下翻页。
+**more**：查看长篇纯文本文件（内容较多的），使用空格键或回车键向下翻页。
 
-**tail**：查看纯文本文档的后N行或持续刷新内容（加 -f）
+**stat**：查看文件的具体存储信息和时间等信息。
 
-```sh
-[root@linuxprobe ~]# tail -f /var/log/messages.txt
-```
+**lsattr**：用于显示文件的隐藏权限(编辑)，格式为“lsattr [参数] 文件” 。
 
-**head**：查看纯文本文档的前N行。
-
-```sh
-[root@linuxprobe ~]# head -n 20 initial-setup-ks.cfg
-```
+**wc**：命令用于统计指定文本的行数、字数、字节数，格式为“wc[参数] 文本” 。
 
 **tr [原始字符] [目标字符]**：替换文本文件中的字符。
-
-**stat [文件名称]**：查看文件的具体存储信息和时间等信息。
 
 **cut [参数] 文本**：按“列”提取文本字符。
 
 ```sh
-[root@linuxprobe ~]# head -n 2 /etc/passwd
+head -n 2 /etc/passwd
 ```
 
 **diff**
 **diff --brief**：判断文件是否相同。相同内容用 “！”标出。
 
 ```sh
-[root@linuxprobe ~]# diff --brief diff_A.txt diff_B.txt
-Files diff_A.txt and diff_B.txt differ
+diff --brief diff_A.txt diff_B.txt
+>Files diff_A.txt and diff_B.txt differ
 ```
 
 **-c** 参数描述文件内容具体的不同，如
 
 ```sh
-[root@linuxprobe ~]# diff -c diff_A.txt diff_B.txt
+diff -c diff_A.txt diff_B.txt
 ```
 
 ## 文件操作
@@ -217,34 +175,31 @@ Files diff_A.txt and diff_B.txt differ
 
 **touch [选项] [文件]**：**创建空白文件**或修改文件的时间。
 
-修改文件时间
-
-```sh
-[root@linuxprobe ~]# ls -l anaconda-ks.cfg //先查看文件时间
-[root@linuxprobe ~]# touch -d "2017-05-04 15:44" anaconda-ks.cfg 
-```
-
 **mkdir [选项] 目录**：创建空白的目录。加-p可递归创建出嵌套叠层关系的文件目录。
 
 ```sh
-[root@linuxprobe linuxprobe]# mkdir -p a/b/c/d/e
+mkdir -p a/b/c/d/e
 ```
 
-**rm [选项] 文件**：删除文件或目录。-f：强制删除。-r：删除目录。
+rm [选项] 文件：
 
-**rmdir 文件夹名**：移除文件夹。
+删除文件或目录。-f：强制删除。-r：删除目录。
 
-**rename 目标文件名 重命名的名称 目标文件名(不奇怪)**：重命名。
+**rmdir 文件夹名**：
 
-**cp [选项] 源文件 目标文件**：复制文件或目录。-p：保留原始文件属性。-i：若目标文件存在则询问是否覆盖。
+移除文件夹。
 
-> 如果目标文件是目录，则会把源文件复制到该目录中；
-> 如果目标文件同名，则会询问是否要覆盖它；
-> 如果目标文件不存在，则执行正常的复制操作。
-> 
-> 复制为一份名为x.log的备份文件 - `[root@linuxprobe ~]# cp install.log x.log`
+**rename 目标文件名 重命名的名称 目标文件名(不奇怪)**：
 
-**mv [选项] 源文件 [目标路径|目标文件名]**：剪切文件或将文件重命名。
+重命名。
+
+**cp [选项] 源文件 目标文件**：
+
+复制文件或目录。-p：保留原始文件属性。-i：若目标文件存在则询问是否覆盖。
+
+**mv [选项] 源文件 [目标路径|目标文件名]**：
+
+剪切文件或将文件重命名。
 
 同目录对一个文件进行剪切，也就是对其重命名。
 
@@ -347,8 +302,6 @@ Files diff_A.txt and diff_B.txt differ
 
 ## 文件属性
 
-例子
-
 ```sh
 [root@www /]# ls -l
 total 64
@@ -357,7 +310,7 @@ dr-xr-xr-x   4 root root 4096 Apr 19  2012 boot
 //实例中，bin 文件的第一个属性用 d 表示。d 在 Linux 中代表该文件是一个目录文件。
 ```
 
-在 Linux 中第一个字符代表这个文件是目录、文件或链接文件等等。
+ Linux 中第一个字符代表这个文件是目录、文件或链接文件等等。
 
 - 当为 **d** 则是目录
 
@@ -368,6 +321,8 @@ dr-xr-xr-x   4 root root 4096 Apr 19  2012 boot
 - 若是 **b** 则表示为装置文件里面的可供储存的接口设备(可随机存取装置)；
 
 - 若是 **c** 则表示为装置文件里面的串行端口设备，例如键盘、鼠标(一次性读取装置)。
+
+- p 管道文件。
 
 ## 证书管理
 

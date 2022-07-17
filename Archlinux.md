@@ -11,7 +11,7 @@ EDITOR=vim sudoedit path_to_file
 而编辑 sudoers 文件，则必须要使用：
 
 ```bash
-sudo visudo
+sudo EDITOR=vim visudo
 ```
 
 ### 千万不要把U盘文件移除到垃圾桶
@@ -21,7 +21,15 @@ sudo visudo
 解决方法：重新插入U盘打开进入，用鼠标右键垃圾桶图标清空既可。
 
 ### Vnote 安装时间巨长！可试着安装 vnote-git
-
+## 磁盘挂载
+查看挂载情况：
+```
+lsblk -l
+```
+查看配置挂载文件：
+```
+cat /etc/fstab
+```
 ## ffmpeg
 
 ### 转换编码格式
@@ -52,8 +60,9 @@ ffmpeg -i output-h264.mp4 -vf scale=1280:720 output-h264-720.mp4
 
 ## powerlevel10k配置
 
-输入`p10k configure`即可
-
+```bash
+p10k configure
+```
 ## 刷新DNS缓存
 
 ## 命令
@@ -80,12 +89,25 @@ neofetch
 功能：监听进程运行状态
 
 交互操作：
-
+P：按照 CPU 的使用率排序，默认就是此选项；
 N：按照 PID 排序；
-
+M：按照内存的使用率排序；
 k：按照 PID 给予某个进程一个信号。一般用于中止某个进程，信号 9 是强制中止的信号；
 
-## 应用程序搜索
+## kde 桌面快捷键
+
+### 窗口
++ 窗口最大化和还原 `win+PgUp`
++ 窗口最小化 `win+PgDn`
+
+### 打开搜索框
+```
+alt+f2
+```
+
+## pacman
+
+### 应用程序搜索
 
 ```bash
 yay -Ss nerd-font
@@ -93,7 +115,7 @@ yay -Ss nerd-font
 pacman -Ss nerd-font
 ```
 
-## 卸载
+### 卸载
 
 卸载依赖以及配置
 
@@ -101,6 +123,53 @@ pacman -Ss nerd-font
 sudo pacman -R -sn torbrowser-launcher
 或
 sudo pacman -Rsn torbrowser-launcher 
+```
+
+## yay
+
+**快速安装**`sudo pacman -S yay`
+
+### 下载
+
+准备
+
+```bash
+# 注：分开执行！
+sudo pacman -S base-devel
+sudo pacman -S git
+```
+
+下载
+
+```bash
+cd /opt
+sudo git clone https://aur.archlinux.org/yay.git
+```
+
+更改用户
+
+```bash
+sudo chown -R yourname:users ./yay
+```
+
+编译安装
+
+```bash
+cd yay
+makepkg -si
+# 注：如果下载失败再试一下 
+```
+
+### 升级 AUR 包 (试用)
+
+```bash
+yay -Sua <packagename>
+```
+
+### 查看配置
+
+```bash
+yay -P -g
 ```
 
 ## konsole
@@ -175,7 +244,12 @@ sudo pacman -Rsn torbrowser-launcher
   或
   [admin@arch ~]$ sudo pacman -S fcitx5-rime 
   ```
-
++ 安装词库
+```bash
+sudo pacman -S fcitx5-pinyin-zhwiki-rime fcitx5-pinyin-moegirl-rime。
+```
++ 导入词库
+参考：https://wiki.archlinux.org/title/Fcitx5_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E5%AF%BC%E5%85%A5%E8%AF%8D%E5%BA%93
 + sudoedit 编辑 /etc/environment，加上如下内容：
   
   最好参考官网，[Fcitx5 (简体中文) - ArchWiki](https://wiki.archlinux.org/title/Fcitx5_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E5%AE%89%E8%A3%85)
@@ -190,9 +264,9 @@ sudo pacman -Rsn torbrowser-launcher
 
 + 重启系统
   
-  ```bash
-  [admin@arch ~]$ systemctl reboot
-  ```
+ ```bash
+ systemctl reboot
+ ```
 
 + 添加 rime 输入法
   「 开始菜单 」 > 「 System Settings 」 > 「 Personalization 」 一栏下面的 「 Regional Settings 」 > 「 Input Method 」，取消勾选 「Only Show Current Language」 > 「 Rime 」 > 「 > 」 > 「 Apply 」 应用生效。
@@ -229,7 +303,7 @@ sudo pacman -Rsn torbrowser-launcher
 
 ### 输入法字典下载后没有显示
 
-需要在`default.custom.yaml`添加输入法
+需要在`default.custom.yaml`添加该输入法
 
 ### 横排和竖排的修改
 
@@ -252,7 +326,7 @@ fcitx-rime 的大部分的配置文件在 `~/.config/fcitx/rime` 下，如果是
 PerScreenDPI=False
 
 # Font (设置成你喜欢的字体)
-Font="Noto Sans Regular 14"
+Font="Sans 14"
 ```
 
 ### 输入法诊断
@@ -274,6 +348,11 @@ patch:
 ### 有些字母无法输出如“/”
 
 按空格键即可，要选择其他字符，再按“/”键自身即可选择
+
+### 获取到的程序名称
+```bash
+ dbus-send --print-reply=literal --dest=org.fcitx.Fcitx5 /controller org.fcitx.Fcitx.Controller1.DebugInfo
+```
 
 ## Python
 
@@ -315,47 +394,6 @@ sudo pacman install torbrowser-launcher
 ## ventoy
 
 退出：F5:Tools ->Power->reboot
-
-## yay
-
-> 注：可以先试一下`sudo pacman -S yay`
-
-### 下载
-
-准备
-
-```bash
-# 注：分开执行！
-sudo pacman -S base-devel
-sudo pacman -S git
-```
-
-下载
-
-```bash
-cd /opt
-sudo git clone https://aur.archlinux.org/yay.git
-```
-
-更改用户
-
-```bash
-sudo chown -R yourname:users ./yay
-```
-
-编译安装
-
-```bash
-cd yay
-makepkg -si
-# 注：如果下载失败再试一下 
-```
-
-### 查看配置
-
-```bash
-yay -P -g
-```
 
 ## 代理
 
@@ -409,10 +447,9 @@ sudoedit vim /etc/pacman.conf   #在文件末尾添加，这是第三方的
 
 > 注意：archlinux不支持部分升级，也就是不支持单独更新升级某一个软件。不可以使用 `pacman -Sy package`，也不可以使用`pacman -Sy`或`pacman -Syy`，要升级只能一起升级。
 
+每次修改镜像之后都应该使用以下命令刷新：
 ```bash
-# 或者不用更新
-sudo pacman -Syu
-备选：sudo pacman -Syy
+pacman -Syyu
 ```
 
 ### 更新系统
@@ -420,12 +457,17 @@ sudo pacman -Syu
 ```bash
 pacman -Syu
 ```
-
 ### 升级与更新
 
 - 避免部分升级。不要运行 `pacman -Sy <软件包名称>`。此命令在安装软件包时部分升级你的系统。相反，优先使用 `pacman -Syu` 来更新系统，然后使用 `package -S <软件包名称>` 安装软件包。
 - 避免使用 `pacman -Syu -force` 命令。`-force` 将忽略程序包和文件冲突，并且可能会以破损的程序包或损坏的系统结束。
 - 不要使用 `pacman -Rdd <软件包名称>`。此命令在删除软件包时不会执行依赖性检查。
+
+### 软件包降级
+
+```
+downgrade <package>
+```
 
 ### 列出已安装的包
 
@@ -438,7 +480,10 @@ pacman -Qe
 ```bash
 pacman -Qi packagename
 ```
-
+### 找出孤立包
+```
+pacman -Qdt
+```
 ## 问题
 
 ### error: failed to commit transaction (invalid or corrupted package (PGP signature))
@@ -452,6 +497,16 @@ sudo pacman -S archlinuxcn-keyring
 ### curl: (7) Failed to connect to git.io port 443 after 21028 ms: Connection refused
 
 终端配置代理
+
+### error: libinih: key "xxx" is unknown
+按照要求删除签名无效的包缓存。
+如果还不行就使用如下命令清理全部包缓存：
+```
+sudo pacman -Sc
+```
+### node: error while loading shared libraries: libicui18n.so.70: cannot open shared object file: No such file or directory
+
+版本问题，安装使用比较新的`nodejs`版本即可。
 
 ### Discover无法使用
 
@@ -502,8 +557,11 @@ cp /media/david/OS/Windows/Fonts/*.* ~/.local/share/fonts/win_fonts
 # 删除.fon文件
 rm -f ~/.local/share/fonts/win_fonts/*.fon
 ```
+
 生成字体的索引信息
->要在字体目录里面执行命令
+
+> 要在字体目录里面执行命令
+
 ```bash
 mkfontscale
 mkfontdir
@@ -527,7 +585,7 @@ fc-cache -fv
 
 [具体教程](http://www.hmmnx.com/archives/archmanjaro-jie-jue-wps-zi-ti-mo-hu-wen-ti)
 
-### Telegram 中文有异体字形
+### 中文有异体字形
 
 调整字体优先级：
 在~/.fonts.conf添加，前提是安装有这种字体
@@ -549,6 +607,14 @@ fc-cache -fv
     </prefer>
   </alias>
 </fontconfig>
+```
+更新字体缓存
+```bash
+fc-cache -fv
+```
+检查优先级
+```bash
+fc-match -s
 ```
 
 ### 开机启动时头像无法显示
@@ -628,7 +694,8 @@ bindkey '^i' expand-or-complete-prefix
 ```bash
 npx hexo Blog
 ```
-
+或者更改全局安装路径：
+参考：[Resolving EACCES permissions errors when installing packages globally](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
 ### VS Code首次安装打开提示错误
 
 错误信息：Writing login information to the keychain failed with error'GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown:
@@ -658,7 +725,7 @@ session        optional    pam_gnome_keyring.so auto_start  <=还有这行
 ```
 
 参考[GNOME Keyring - openSUSE Wiki](https://en.opensuse.org/GNOME_Keyring)
-
+>以上问题安装1.5版本就可解决！
 ### 无法通过USB访问手机
 
 将用户添加到`uucp`组
@@ -682,6 +749,32 @@ sudo pacman -S unarchiver
 ```bash
 unar xxx.zip
 ```
+### 主题无法删除
+在 `~/.local/share/plasma/desktoptheme/`这里找到相关主题删除即可。
+
+## 杀掉应用
+
+找到应用：
+
+```
+ps ax | grep 进程名
+```
+
+杀掉应用：
+
+```
+kill 进程ID
+```
+
+或者强制杀掉：
+```
+kill -KILL 进程ID
+```
+
+## Lvim
+
+### 插件不起效
+删除该插件和其配置，`LvimReload`更新配置，再用`PackerSync`完全删除插件。
 
 ## 其他
 

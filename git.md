@@ -1,20 +1,53 @@
 ## 基础
 
-+ `git init`：初始化仓库。
+## 初始化仓库
 
-+ `git reset --hard HEAD~n(上n版本)`: 回退到指定版本，往上100个版本写100个`^`比较容易数不过来，所以写成`HEAD~100`。HEAD表示当前版本。
+```
+git init
+```
 
-+ `git reset --hard HEAD^`：回退到上一个版本，上上一个版本就是`HEAD^^`。
+## 回退到指定版本
 
-+ `git reset --hard 1094a(版本号，前几位)`：回到未来的某个版本。
+```
+git reset --hard HEAD~n(上n版本)，
+```
+>往上100个版本写100个`^`比较容易数不过来，所以写成`HEAD~100`。HEAD表示当前版本。
 
-+ `git reflog`: 记录每一条使用过的命令。
+## 回退到上一个版本
+```
+git reset --hard HEAD^
+```
+>上上一个版本就是`HEAD^^`。
 
-+ `git status`：查看状态。
+## 回到未来的某个版本。
 
-+ `git checkout -- readme.txt`：把readme.txt文件在工作区的修改全部撤销。
+```
+git reset --hard 1094a(版本号，前几位)
+```
 
-+ `git diff`：查看更改的地方
+## 查看状态
+
+```
+git status
+```
+
+## 撤销修改
+
+```
+git checkout -- readme.txt
+```
+把`readme.tx`t文件在工作区的修改全部撤销。
+
+## 查看更改的地方
+
+```
+git diff
+```
+## 记录每一条使用过的命令
+
+```
+git reflog
+```
 
 ## 把文件放到Git仓库
 

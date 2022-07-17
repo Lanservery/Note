@@ -1,3 +1,7 @@
+# 问题
+
+很多时候出现问题的原因几乎是版本问题
+
 # 安装指定版本模块
 
 ```
@@ -83,6 +87,8 @@ console.log("程序执行结束!");
 
 异步：就是可以同时干好几件事
 
+同步按代码顺序执行，异步不按照代码顺序执行。
+
 # on 函数
 
  `on`方法用来绑定一个事件，可以说监听一个事件，需要传入事件名称(前提是有这个事件)和对应的处理函数
@@ -105,6 +111,10 @@ console.log("程序执行结束!");
 ```
  node inspect  app.js
 ```
+查看变量值：
+```
+debug>repl
+```
 
 重启：
 
@@ -120,15 +130,11 @@ debug>.exit
 
 # await
 
+`await` 关键字仅在 `async function` 中有效，通常后跟一个 `Promise`(函数返回的 `promise` 对象)。执行时会在这暂停，直到其 `Promise` 运行结束再继续运行。
+
 `await next()`在`async`函数中，可让下一个middleware继续执行或者是处理下一个middleware，middleware指函数。主要用在中间件上，指`app.use(middleware)`函数才使用。
 
 也可以说是调用另一函数。
-
-await 关键字仅在 async function 中有效。
-
-# async
-
-async 修饰的函数返回一个 Promise 对象，可使用 then 方法添加回调函数。
 
 # MIME
 
